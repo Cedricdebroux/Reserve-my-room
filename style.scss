@@ -1,11 +1,33 @@
 body {
+    min-width: 100vh;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:#aa82f3; 
+}
+.background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#f5839e;
+    transition: background-color 1s linear; 
+}
+.container:hover ~ .background{
+    background-color: #aa82f3;
+    transition: background-color 1s linear;
 }
 .container {
+    display: flex;
+    z-index: 3;
+    position: relative;
     width: 600px;
     height: 180px;
     display: flex;
@@ -13,26 +35,67 @@ body {
     background-color: white;
     border-radius: 20px;
     animation: pulsateMouseOut .8s;
+    &-bed-images {
+        animation: zoomOutBed .3s;
+    }
+    &-bed-images-valise1 {
+        animation: moveToRightReverse .7s;
+    }
     &:hover{
         animation: pulsateHover .8s;
+    .container-bed-images {
+        animation: zoomInBed .3s forwards;
+        }
+    .container-bed{    
+        background-color: #c6acfe;
+        transition: background-color 1s linear;
+    }
+    .container-bed-images-valise1 {
+        animation: moveToRight .3s forwards;
+    }
+    .container-bed-images-valise2 {
+        animation: moveToLeft .3s forwards;
+    }
     }
 }
-
-.container-bed {
+.container-bed{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 200px;
-    background-color: #c6acfe;
+    background-color: #f8a4b6;
+    transition: background-color 1s linear;
     border-radius: 20px 0px 0px 20px;
-
-    img {
-        width: 100px;
-        height: 100px; 
+    &-images {
+        position: absolute;
+        z-index: 1;
+        width: 140px;
+        height: 140px;
+        &-valise1 {
+            animation: moveToRightReverse .4s;
+            position: relative;
+            top: 20px;
+            right: 100px;
+            z-index: 2;
+            width: 50px;
+            height: 50px;
+            opacity: 0;    
+        }
+        &-valise2 {
+            animation: moveToLeftReverse .3s;
+            position: relative;
+            top: 15px;
+            left: 100px;
+            z-index: 1;
+            width: 60px;
+            height: 60px;
+            opacity: 0;  
+        }
+        }
     }
-}
-.cont-text {
+.container-text {
     display: flex;
+    z-index: 4;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
@@ -44,15 +107,97 @@ body {
 }
 @keyframes pulsateHover {
     0% {transform: scale(1);}
-    25% {transform: scale(.9);}
+    25% {transform: scale(.92);}
     50%{transform: scale(1);}
     75%{transform: scale(.98);}
     100% {transform: scale(1);}
 }
 @keyframes pulsateMouseOut {
     0% {transform: scale(1);}
-    25% {transform: scale(1.1);}
+    25% {transform: scale(1.08);}
     50% {transform: scale(1);}
-    75% {transform: scale(1.08);}
+    75% {transform: scale(1.02);}
     100% {transform: scale(1);}
 }    
+@keyframes zoomInBed {
+    0% {transform: scale(1);}
+    25% {transform: scale(.95);}
+    50% {transform: scale(.9);}
+    75% {transform: scale(.85);}
+    100% {transform: scale(.8);}
+}
+@keyframes zoomOutBed {
+    0% {transform: scale(.8);}
+    25% {transform: scale(.85);}
+    50% {transform: scale(.9);}
+    75% {transform: scale(.95);}
+    100% {transform: scale(1);}
+}
+@keyframes moveToRight {
+    0% {transform: translateX(0px);}
+    10% {transform: translateX(9px);}
+    20% {transform: translateX(18px);}
+    30% {transform: translateX(27px);}
+    40% {transform: translateX(36px);}
+    50% {transform: translateX(45px);}
+    60% {transform: translateX(54px);}
+    70% {transform: translateX(63px);}
+    80% {transform: translateX(72px);}
+    90% {transform: translateX(81px);}
+    100% {transform: translateX(90px);
+    opacity: 1;}
+}
+@keyframes moveToLeft {
+    0% {transform: translateX(0px);}
+    10% {transform: translateX(-9px);}
+    20% {transform: translateX(-18px);}
+    30% {transform: translateX(-27px);}
+    40% {transform: translateX(-36px);}
+    50% {transform: translateX(-45px);}
+    60% {transform: translateX(-54px);}
+    70% {transform: translateX(-63px);}
+    80% {transform: translateX(-72px);}
+    90% {transform: translateX(-81px);}
+    100% {transform: translateX(-90px);
+    opacity: 1;}
+}
+@keyframes moveToRightReverse {
+    0% {transform: translateX(90px);
+    opacity: 1;}
+    10% {transform: translateX(81px);
+    opacity: 1;}
+    20% {transform: translateX(72px);
+    opacity: 1;}
+    30% {transform: translateX(63px);
+    opacity: 1;}
+    40% {transform: translateX(54px);
+    opacity: 1;}
+    50% {transform: translateX(45px);
+    opacity: 0;}
+    60% {transform: translateX(36px);}
+    70% {transform: translateX(27px);}
+    80% {transform: translateX(18px);}
+    90% {transform: translateX(9px);}
+    100% {transform: translateX(0px);} 
+}
+@keyframes moveToLeftReverse {
+    0% {transform: translateX(-90px);
+    opacity: 1;}
+    10% {transform: translateX(-81px);
+    opacity: 1;}
+    20% {transform: translateX(-72px);
+    opacity: 1;}
+    30% {transform: translateX(-63px);
+    opacity: 1;}
+    40% {transform: translateX(-54px);
+    opacity: 1;}
+    50% {transform: translateX(-45px);
+    opacity: 1;}
+    60% {transform: translateX(-36px);
+    opacity: 1;}
+    70% {transform: translateX(-27px);
+    opacity: 0;}
+    80% {transform: translateX(-18px);}
+    90% {transform: translateX(-9px);}
+    100% {transform: translateX(-0px);}
+}
