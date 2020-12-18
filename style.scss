@@ -25,6 +25,7 @@ body {
     transition: background-color 1s linear;
 }
 .container {
+    cursor: pointer;
     display: flex;
     z-index: 3;
     position: relative;
@@ -42,7 +43,7 @@ body {
         animation: moveToRightReverse .7s;
     }
     &:hover{
-        animation: pulsateHover .8s;
+        animation: pulsateHover .8s forwards;
     .container-bed-images {
         animation: zoomInBed .3s forwards;
         }
@@ -109,8 +110,8 @@ body {
     0% {transform: scale(1);}
     25% {transform: scale(.92);}
     50%{transform: scale(1);}
-    75%{transform: scale(.98);}
-    100% {transform: scale(1);}
+    75%{transform: scale(.94);}
+    100% {transform: scale(.96);}
 }
 @keyframes pulsateMouseOut {
     0% {transform: scale(1);}
@@ -121,83 +122,35 @@ body {
 }    
 @keyframes zoomInBed {
     0% {transform: scale(1);}
-    25% {transform: scale(.95);}
-    50% {transform: scale(.9);}
-    75% {transform: scale(.85);}
     100% {transform: scale(.8);}
 }
 @keyframes zoomOutBed {
     0% {transform: scale(.8);}
-    25% {transform: scale(.85);}
-    50% {transform: scale(.9);}
-    75% {transform: scale(.95);}
     100% {transform: scale(1);}
 }
 @keyframes moveToRight {
     0% {transform: translateX(0px);}
-    10% {transform: translateX(9px);}
-    20% {transform: translateX(18px);}
-    30% {transform: translateX(27px);}
-    40% {transform: translateX(36px);}
-    50% {transform: translateX(45px);}
-    60% {transform: translateX(54px);}
-    70% {transform: translateX(63px);}
-    80% {transform: translateX(72px);}
-    90% {transform: translateX(81px);}
     100% {transform: translateX(90px);
     opacity: 1;}
 }
 @keyframes moveToLeft {
     0% {transform: translateX(0px);}
-    10% {transform: translateX(-9px);}
-    20% {transform: translateX(-18px);}
-    30% {transform: translateX(-27px);}
-    40% {transform: translateX(-36px);}
-    50% {transform: translateX(-45px);}
-    60% {transform: translateX(-54px);}
-    70% {transform: translateX(-63px);}
-    80% {transform: translateX(-72px);}
-    90% {transform: translateX(-81px);}
     100% {transform: translateX(-90px);
     opacity: 1;}
 }
 @keyframes moveToRightReverse {
     0% {transform: translateX(90px);
     opacity: 1;}
-    10% {transform: translateX(81px);
-    opacity: 1;}
-    20% {transform: translateX(72px);
-    opacity: 1;}
-    30% {transform: translateX(63px);
-    opacity: 1;}
-    40% {transform: translateX(54px);
-    opacity: 1;}
     50% {transform: translateX(45px);
     opacity: 0;}
     60% {transform: translateX(36px);}
-    70% {transform: translateX(27px);}
-    80% {transform: translateX(18px);}
-    90% {transform: translateX(9px);}
     100% {transform: translateX(0px);} 
 }
 @keyframes moveToLeftReverse {
     0% {transform: translateX(-90px);
     opacity: 1;}
-    10% {transform: translateX(-81px);
-    opacity: 1;}
-    20% {transform: translateX(-72px);
-    opacity: 1;}
-    30% {transform: translateX(-63px);
-    opacity: 1;}
-    40% {transform: translateX(-54px);
-    opacity: 1;}
-    50% {transform: translateX(-45px);
-    opacity: 1;}
     60% {transform: translateX(-36px);
-    opacity: 1;}
-    70% {transform: translateX(-27px);
     opacity: 0;}
-    80% {transform: translateX(-18px);}
-    90% {transform: translateX(-9px);}
+    70% {transform: translateX(-27px);}
     100% {transform: translateX(-0px);}
 }
